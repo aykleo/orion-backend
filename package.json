@@ -1,0 +1,30 @@
+{
+  "name": "orion",
+  "module": "server.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --watch src/http/server.ts",
+    "build": "bun build src/http/server.ts --target bun --outdir ./dist",
+    "start": "NODE_ENV=production bun src/http/server.ts",
+    "test": "bun test",
+    "seed": "bun prisma/seed.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@elysiajs/jwt": "^1.2.0",
+    "@elysiajs/node": "^1.2.5",
+    "@paralleldrive/cuid2": "^2.2.2",
+    "@prisma/client": "^6.3.0",
+    "@types/node": "^22.13.0",
+    "elysia": "^1.2.11",
+    "install": "^0.13.0",
+    "prisma": "^6.3.0",
+    "studio": "^0.13.5",
+    "tsx": "^4.19.2"
+  }
+}

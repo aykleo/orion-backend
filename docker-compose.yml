@@ -1,0 +1,14 @@
+services:
+  postgress:
+    image: bitnami/postgresql:latest
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=orion_user
+      - POSTGRES_PASSWORD=orion_password
+      - POSTGRES_DB=orion_db
+    volumes:
+      - orion_user_pg_data:/bitnami/postgresql
+
+volumes:
+  orion_user_pg_data:
