@@ -10,7 +10,6 @@ if (!jwtSecret) {
 
 const jwtPayload = t.Object({
   sub: t.String(),
-  restaurantId: t.Optional(t.String()),
 });
 
 export const auth = new Elysia()

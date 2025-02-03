@@ -44,8 +44,10 @@ model User {
   role    UserRole @default(USER)
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
+  deletedAt DateTime?
   workouts  Workout[]
   exercises Exercise[]
+  authLinks AuthLinks? @relation("UserAuthLinks")
 
   @@index([username, email])
 }
@@ -115,4 +117,14 @@ model ExerciseMuscleGroup {
   muscleGroup   MuscleGroup @relation(fields: [muscleGroupId], references: [id])
 
   @@id([exerciseId, muscleGroupId])
+}
+
+model AuthLinks {
+  id String @id
+  userId String @unique
+  user User @relation("UserAuthLinks",fields: [userId], references: [id], onDelete: Cascade)
+  code String @unique
+  createdAt DateTime @default(now())
+ 
+  @@map("authLinks")
 }

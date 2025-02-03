@@ -19,7 +19,7 @@ async function main() {
     data: {
       id: createId(),
       username: "admin",
-      email: "admin@fitnessapp.com",
+      email: "admin@admin.com",
       role: "ADMIN",
     },
   });
@@ -182,4 +182,5 @@ main()
   })
   .finally(async () => {
     await prisma.$disconnect();
+    await process.exit();
   });
